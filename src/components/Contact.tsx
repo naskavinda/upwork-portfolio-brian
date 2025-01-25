@@ -86,10 +86,13 @@ function Contact() {
           <h3>Quick Links</h3>
           <ul>
             <li>
-              <a href="#about">About</a>
+              <a href="#about">About Me</a>
             </li>
             <li>
               <a href="#expertise">Expertise</a>
+            </li>
+            <li>
+              <a href="#career">Career</a>
             </li>
             <li>
               <a href="#projects">Projects</a>
