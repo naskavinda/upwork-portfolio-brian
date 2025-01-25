@@ -102,7 +102,7 @@ function Contact() {
 
         <div className="contact-details">
           <h3>Contact</h3>
-          <p>Email: brianbui@gmail.com</p>
+          <p>Email: brian@btb.gg</p>
           <p>Phone: +1 756-869-689-913</p>
           <p>Location: New York, United States</p>
         </div>
