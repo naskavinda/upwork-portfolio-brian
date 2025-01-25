@@ -5,6 +5,7 @@ import {
   Expertise,
   Timeline,
   Project,
+  Qualifications,
   Contact,
   Navigation,
   Footer,
@@ -34,6 +35,7 @@ function App() {
             <Main/>
             <Expertise/>
             <About/>
+            <Qualifications/>
             <Timeline/>
             <Project/>
             <Contact/>
