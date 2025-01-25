@@ -1,40 +1,126 @@
+#career {
+  padding: 0 10%;
+  
+  @media screen and (max-width: 768px) {
+    padding: 0 5%;
+  }
+}
+
+.items-container {
+  margin-top: 64px;
+  margin-bottom: 64px;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  h1 {
+    margin-bottom: 48px;
+
+    @media screen and (max-width: 768px) {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.vertical-timeline {
+  &::before {
+    @media screen and (max-width: 768px) {
+      left: 18px;
+    }
+  }
+}
+
 .vertical-timeline span {
     color: white;
     font-family: "Courier Prime", monospace;
-  }
+}
   
-  .vertical-timeline p {
+.vertical-timeline p {
     color: rgb(39, 40, 34);
-  }
+}
   
-  .vertical-timeline-element p {
+.vertical-timeline-element {
+    margin: 4em 0;
+
+    @media screen and (max-width: 768px) {
+      margin: 3em 0;
+    }
+}
+
+.vertical-timeline-element p {
     color: rgb(39, 40, 34);
-  }
+    margin: 1em 0;
+    line-height: 1.6;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.9rem;
+      margin: 0.8em 0;
+    }
+}
   
-  .vertical-timeline-element h3 {
+.vertical-timeline-element h3 {
     color: rgb(0, 0, 0);
-  }
+    margin: 0;
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.1rem;
+    }
+}
   
-  .vertical-timeline-element h4 {
+.vertical-timeline-element h4 {
     color: rgb(102, 102, 101);
-  }
+    margin: 0.5em 0;
+    font-size: 1rem;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.9rem;
+      margin: 0.3em 0;
+    }
+}
   
-  .vertical-timeline-element span {
+.vertical-timeline-element span {
     color: rgb(39, 40, 34);
-  }
+}
   
-  .svg-inline--fa {
+.svg-inline--fa {
     color: white;
-  }
+}
   
-  .vertical-timeline-element-content {
+.vertical-timeline-element-content {
     border-radius: 15px;
     border: 1px solid rgb(231, 231, 231);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
-  }
+    padding: 2em;
+
+    @media screen and (max-width: 768px) {
+      padding: 1.5em;
+      margin-left: 60px;
+    }
+
+    // .vertical-timeline-element-content-arrow {
+    //   @media screen and (max-width: 768px) {
+    //     border-right: 7px solid rgb(231, 231, 231);
+    //     border-top: 7px solid transparent;
+    //     border-bottom: 7px solid transparent;
+    //     left: -15px;
+    //   }
+    // }
+}
+
+.vertical-timeline-element-icon {
+    @media screen and (max-width: 768px) {
+      width: 35px;
+      height: 35px;
+      left: 0;
+      margin-left: 0;
+    }
+}
   
-  .toggle-details-section {
+.toggle-details-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,28 +130,49 @@
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
     transition: background-color 0.3s ease;
-  }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 8px;
+    }
+}
   
-  .toggle-details-section:hover {
+.toggle-details-section:hover {
     background-color: #eeecec;
-  }
+}
   
-  .toggle-details-section svg {
+.toggle-details-section svg {
     font-size: 1.5rem;
     color: #2b98c2;
     transition: color 0.3s ease;
-  }
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.3rem;
+    }
+}
   
-  .additional-details {
+.additional-details {
     margin-top: 15px;
     padding-top: 10px;
     border-top: 1px solid #e0e0e0;
     color: rgb(39, 40, 34);
     font-size: 0.9rem;
-  }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 12px;
+      padding-top: 8px;
+      font-size: 0.85rem;
+    }
+}
   
-  @media screen and (max-width: 1170px) {
+@media screen and (max-width: 1170px) {
     .vertical-timeline-element .vertical-timeline-element-date {
       color: rgb(39, 40, 34);
+      font-size: 0.9rem;
+      margin-top: 0.5em;
     }
-  }
+
+    .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
+      visibility: visible;
+      animation: none;
+    }
+}
