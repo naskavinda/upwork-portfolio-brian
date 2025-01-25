@@ -24,7 +24,7 @@
 }
 
 .qualification-category {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(10, 25, 47, 0.7);
   border-radius: 10px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -42,7 +42,7 @@
     
     svg {
       font-size: 2rem;
-      color: #64ffda;
+      color: rgb(43, 152, 194);
     }
 
     h2 {
@@ -60,36 +60,36 @@
 
 .qualification-item {
   padding: 1.5rem;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: rgba(10, 25, 47, 0.7);
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(10, 25, 47, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
   h3 {
-    color: #64ffda;
+    color: rgb(43, 152, 194);
     font-size: 1.2rem;
     margin: 0 0 0.5rem 0;
   }
 
   .institution {
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1rem;
     margin: 0 0 0.5rem 0;
   }
 
   .year {
-    color: #8892b0;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
     margin: 0 0 0.5rem 0;
   }
 
   .description {
-    color: #8892b0;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.95rem;
     line-height: 1.5;
     margin: 0;
@@ -114,8 +114,7 @@
 // Light theme styles
 .light-mode {
   .qualifications-section {
-    background-color: white;
-    color: #4a5568;
+    background-color: #f8f9fa;
 
     h1 {
       color: #1a202c;
@@ -123,12 +122,12 @@
   }
 
   .qualification-category {
-    background-color: #f7fafc;
-    border-color: #e2e8f0;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
     .category-header {
       svg {
-        color: #2b98c2;
+        color: rgb(43, 152, 194);
       }
 
       h2 {
@@ -138,24 +137,28 @@
   }
 
   .qualification-item {
-    background-color: white;
-    border-color: #e2e8f0;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 
     &:hover {
-      background-color: #f7fafc;
-      border-color: #cbd5e0;
+      background-color: rgba(255, 255, 255, 1);
+      border-color: rgba(0, 0, 0, 0.2);
     }
 
     h3 {
-      color: #2b98c2;
+      color: rgb(43, 152, 194);
     }
 
     .institution {
       color: #1a202c;
     }
 
-    .year, .description {
+    .year {
       color: #4a5568;
+    }
+
+    .description {
+      color: #2d3748;
     }
   }
 }
