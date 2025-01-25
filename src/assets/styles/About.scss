@@ -1,7 +1,7 @@
 .about-section {
   padding: 6rem 0;
   background-color: #0a192f;
-  color: #8892b0;
+  color: rgba(255, 255, 255, 0.8);
 
   h1 {
     color: white;
@@ -33,7 +33,7 @@
     font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 2rem;
-    color: #64ffda;
+    color: rgb(43, 152, 194);
   }
 }
 
@@ -43,79 +43,190 @@
   margin-bottom: 3rem;
 
   .detail-section {
+    background-color: rgba(10, 25, 47, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
     h3 {
-      color: white;
+      color: rgb(43, 152, 194);
       font-size: 1.3rem;
       margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      svg {
+        color: rgb(43, 152, 194);
+      }
     }
 
     p {
+      color: rgba(255, 255, 255, 0.8);
       line-height: 1.6;
       margin: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+
+        &:before {
+          content: "→";
+          color: rgb(43, 152, 194);
+          position: absolute;
+          left: 0;
+        }
+      }
     }
   }
 }
 
 .personal-info {
-  display: grid;
-  gap: 1rem;
+  background-color: rgba(10, 25, 47, 0.7);
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
 
   .info-item {
     display: flex;
-    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
 
     .label {
-      color: white;
-      min-width: 100px;
+      flex: 0 0 120px;
+      color: rgba(255, 255, 255, 0.7);
       font-weight: 500;
     }
 
     .value {
-      color: #64ffda;
+      color: rgb(43, 152, 194);
+      font-weight: 500;
     }
   }
 }
 
-// Light theme styles
+// Light mode styles
 .light-mode {
   .about-section {
-    background-color: white;
-    color: #4a5568;
+    background-color: #f8f9fa;
+    color: #2d3748;
 
     h1 {
       color: #1a202c;
     }
+  }
 
-    .about-text {
-      .intro {
-        color: #2b98c2;
+  .about-text {
+    .intro {
+      color: rgb(43, 152, 194);
+    }
+  }
+
+  .about-details {
+    .detail-section {
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        border-color: rgba(0, 0, 0, 0.2);
+      }
+
+      h3 {
+        color: rgb(43, 152, 194);
+
+        svg {
+          color: rgb(43, 152, 194);
+        }
+      }
+
+      p {
+        color: #2d3748;
+      }
+
+      ul {
+        li {
+          color: #2d3748;
+
+          &:before {
+            color: rgb(43, 152, 194);
+          }
+        }
       }
     }
+  }
 
-    .about-details {
-      .detail-section {
-        h3 {
-          color: #1a202c;
-        }
-      }
+  .personal-info {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      border-color: rgba(0, 0, 0, 0.2);
     }
 
-    .personal-info {
-      background-color: #f7fafc;
-      border-color: #e2e8f0;
+    .info-item {
+      border-bottom-color: rgba(0, 0, 0, 0.1);
 
-      .info-item {
-        .label {
-          color: #1a202c;
-        }
+      .label {
+        color: #4a5568;
+      }
 
-        .value {
-          color: #2b98c2;
-        }
+      .value {
+        color: rgb(43, 152, 194);
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .about-section {
+    padding: 4rem 0;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .about-details {
+    gap: 1.5rem;
+
+    .detail-section {
+      padding: 1.5rem;
+
+      h3 {
+        font-size: 1.2rem;
       }
     }
   }
