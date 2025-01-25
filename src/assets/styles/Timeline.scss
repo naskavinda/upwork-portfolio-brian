@@ -55,6 +55,16 @@
   position: relative;
   z-index: 2;
 
+  .vertical-timeline-element-content {
+    background-color: rgba(10, 25, 47, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+
+    .vertical-timeline-element-date {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
   .timeline-header {
     margin-bottom: 1.5rem;
 
@@ -71,7 +81,7 @@
       flex-wrap: wrap;
 
       .company-name {
-        color: #fff;
+        color: rgba(255, 255, 255, 0.9);
         font-size: 1.1rem;
         margin: 0;
       }
@@ -218,6 +228,15 @@
     }
 
     .vertical-timeline-element {
+      .vertical-timeline-element-content {
+        background-color: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+
+        .vertical-timeline-element-date {
+          color: #4a5568;
+        }
+      }
+
       .timeline-header {
         .timeline-title {
           color: rgb(43, 152, 194);

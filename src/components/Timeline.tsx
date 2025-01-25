@@ -116,13 +116,6 @@ function Timeline() {
             <VerticalTimelineElement
               key={career.id}
               className={`vertical-timeline-element--work ${!isDarkMode ? 'light-mode-element' : ''}`}
-              contentStyle={{
-                background: isDarkMode ? "rgba(10, 25, 47, 0.7)" : "rgba(255, 255, 255, 0.95)",
-                boxShadow: "0 3px 10px rgba(0, 0, 0, 0.2)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                borderRadius: "10px",
-                padding: "2rem"
-              }}
               contentArrowStyle={{ 
                 borderRight: isDarkMode
                   ? "7px solid rgba(10, 25, 47, 0.7)"
