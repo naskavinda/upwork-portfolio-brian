@@ -5,9 +5,11 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import TextField from '@mui/material/TextField';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import ArticleIcon from '@mui/icons-material/Article';
 
 function Contact() {
-
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
@@ -51,60 +53,111 @@ function Contact() {
 
   return (
     <div id="contact">
-      <div className="items-container">
-        <div className="contact_wrapper">
-          <h1>Contact Me</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
+      <div className="contact-grid">
+        <div className="contact-info">
+          <h2>Brian Bui</h2>
+          <p className="description">
+            A passionate full stack developer creating robust and scalable
+            solutions.
+          </p>
+
+          <div className="social-links">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon />
+            </a>
+            <a href="#resume" target="_blank" rel="noopener noreferrer">
+              <ArticleIcon />
+            </a>
+          </div>
+        </div>
+
+        <div className="quick-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#expertise">Expertise</a>
+            </li>
+            <li>
+              <a href="#projects">Projects</a>
+            </li>
+            <li>
+              <a href="#qualifications">Qualifications</a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="contact-details">
+          <h3>Contact</h3>
+          <p>Email: brianbui@gmail.com</p>
+          <p>Phone: +1 756-869-689-913</p>
+          <p>Location: New York, United States</p>
+        </div>
+
+        <div className="contact-form-section">
+          <h2>Let's Connect</h2>
           <Box
             ref={form}
             component="form"
             noValidate
             autoComplete="off"
-            className='contact-form'
+            className="contact-form"
           >
-            <div className='form-flex'>
+            <div className="form-flex">
               <TextField
                 required
-                id="outlined-required"
-                label="Your Name"
-                placeholder="What's your name?"
+                id="name-input"
+                label="Name"
+                placeholder="Your name"
                 value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
+                onChange={(e) => setName(e.target.value)}
                 error={nameError}
                 helperText={nameError ? "Please enter your name" : ""}
               />
               <TextField
                 required
-                id="outlined-required"
-                label="Email / Phone"
-                placeholder="How can I reach you?"
+                id="email-input"
+                label="Email"
+                placeholder="your@email.com"
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                onChange={(e) => setEmail(e.target.value)}
                 error={emailError}
-                helperText={emailError ? "Please enter your email or phone number" : ""}
+                helperText={emailError ? "Please enter your email" : ""}
               />
             </div>
             <TextField
               required
-              id="outlined-multiline-static"
+              id="message-input"
               label="Message"
-              placeholder="Send me any inquiries or questions"
+              placeholder="Your message"
               multiline
-              rows={10}
+              rows={4}
               className="body-form"
               value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
+              onChange={(e) => setMessage(e.target.value)}
               error={messageError}
               helperText={messageError ? "Please enter the message" : ""}
             />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
+            <Button
+              variant="contained"
+              endIcon={<SendIcon />}
+              onClick={sendEmail}
+              className="send-button"
+            >
+              Send Message
             </Button>
           </Box>
         </div>

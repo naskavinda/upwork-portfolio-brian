@@ -1,26 +1,230 @@
+#contact {
+  padding: 2rem 10%;
+  background-color: #0a192f;
+  color: white;
+
+  @media (max-width: 768px) {
+    padding: 2rem 5%;
+  }
+}
+
+.contact-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  
+  @media (max-width: 1200px) {
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  > div {
+    flex: 1;
+    min-width: 200px;
+
+    @media (max-width: 1200px) {
+      flex: 1 1 calc(50% - 1rem);
+    }
+
+    @media (max-width: 768px) {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+.contact-info {
+  h2 {
+    font-size: 1.8rem;
+    color: white;
+    margin: 0 0 1rem;
+  }
+
+  .description {
+    color: #8892b0;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+
+  a {
+    color: white;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #2b98c2;
+    }
+
+    svg {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.quick-links {
+  h3 {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 0 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    li {
+      a {
+        color: #8892b0;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        white-space: nowrap;
+
+        &:hover {
+          color: #2b98c2;
+        }
+      }
+    }
+  }
+}
+
+.contact-details {
+  h3 {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 0 1rem;
+  }
+  
+  p {
+    color: #8892b0;
+    margin: 0 0 0.5rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.contact-form-section {
+  h2 {
+    font-size: 1.8rem;
+    color: white;
+    margin: 0 0 1.5rem;
+  }
+}
+
+.contact-form {
+  .MuiTextField-root {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+
+    .MuiOutlinedInput-root {
+      color: white;
+
+      fieldset {
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      &:hover fieldset {
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      &.Mui-focused fieldset {
+        border-color: #2b98c2;
+      }
+    }
+
+    .MuiInputLabel-root {
+      color: rgba(255, 255, 255, 0.7);
+
+      &.Mui-focused {
+        color: #2b98c2;
+      }
+    }
+
+    input, textarea {
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  .form-flex {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .MuiTextField-root {
+      width: 100%;
+    }
+  }
+
+  .body-form {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .send-button {
+    background-color: #2b98c2;
+    color: white;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    text-transform: none;
+    float: right;
+
+    &:hover {
+      background-color: #2180a5;
+    }
+
+    .MuiButton-endIcon {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+// Dark theme specific styles
+.dark-mode {
+  #contact {
+    background-color: #0a192f;
+  }
+}
+
+// Light theme specific styles
+.light-mode {
+  #contact {
+    background-color: white;
+
+    .contact-info, .quick-links, .contact-details, .contact-form-section {
+      h2, h3 {
+        color: #0a192f;
+      }
+    }
+
+    .social-links a {
+      color: #0a192f;
+    }
+  }
+}
+
 .contact_wrapper svg {
   font-size: 1em;
   vertical-align: middle;
   margin-right: 5px;
-}
-
-.contact-form {
-  padding-top: 20px;
-
-  button {
-    float: right;
-    background-color: white;
-    color: #050f0b;
-  }
-
-  button:hover {
-    background-color: #2b98c2;
-    color: white;
-  }
-
-  fieldset {
-    background-color: white;
-  }
 }
 
 label {
@@ -28,21 +232,6 @@ label {
   font-family: 'DomaineDispNar-Medium', sans-serif;
 }
 
-.form-flex {
-  display: flex;
-  gap: 15px;
-  padding-bottom: 15px;
-}
-
-.form-flex .MuiFormControl-root {
-  width: 100%;
-}
-
 form {
   width: 100% !important;
-}
-
-.body-form {
-  width: 100% !important;
-  margin-bottom: 15px !important;
 }
