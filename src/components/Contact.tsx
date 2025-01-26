@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
@@ -8,47 +8,87 @@ import TextField from '@mui/material/TextField';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import ArticleIcon from '@mui/icons-material/Article';
+import { CircularProgress, Snackbar, Alert } from '@mui/material';
+import { emailConfig } from '../config/email';
 
 function Contact() {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [nameError, setNameError] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<boolean>(false);
   const [messageError, setMessageError] = useState<boolean>(false);
 
-  const form = useRef();
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: '',
+    severity: 'success' as 'success' | 'error'
+  });
 
-  const sendEmail = (e: any) => {
+  const validateForm = () => {
+    const newNameError = name === '';
+    const newEmailError = email === '' || !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email);
+    const newMessageError = message === '';
+
+    setNameError(newNameError);
+    setEmailError(newEmailError);
+    setMessageError(newMessageError);
+
+    return !newNameError && !newEmailError && !newMessageError;
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbar(prev => ({ ...prev, open: false }));
+  };
+
+  const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
+    if (!validateForm()) {
+      return;
+    }
 
-    /* Uncomment below if you want to enable the emailJS */
+    setLoading(true);
 
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
+    try {
+      await emailjs.send(
+        emailConfig.serviceId,
+        emailConfig.templateId,
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+        },
+        emailConfig.publicKey
+      );
 
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
+      setSnackbar({
+        open: true,
+        message: 'Message sent successfully!',
+        severity: 'success'
+      });
+
+      // Clear form
+      setName('');
+      setEmail('');
+      setMessage('');
+      
+      // Reset errors
+      setNameError(false);
+      setEmailError(false);
+      setMessageError(false);
+    } catch (error) {
+      console.error('Email error:', error);
+      setSnackbar({
+        open: true,
+        message: 'Failed to send message. Please try again.',
+        severity: 'error'
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -85,86 +125,85 @@ function Contact() {
         <div className="quick-links">
           <h3>Quick Links</h3>
           <ul>
-            <li>
-              <a href="#about">About Me</a>
-            </li>
-            <li>
-              <a href="#expertise">Expertise</a>
-            </li>
-            <li>
-              <a href="#career">Career</a>
-            </li>
-            <li>
-              <a href="#projects">Projects</a>
-            </li>
-            <li>
-              <a href="#qualifications">Qualifications</a>
-            </li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#qualifications">Qualifications</a></li>
           </ul>
         </div>
 
-        <div className="contact-details">
-          <h3>Contact</h3>
-          <p>Email: brian@btb.gg</p>
-          <p>Phone: +1 756-869-689-913</p>
-          <p>Location: New York, United States</p>
-        </div>
-
-        <div className="contact-form-section">
-          <h2>Let's Connect</h2>
+        <div className="contact-form">
+          <h3>Get in Touch</h3>
           <Box
-            ref={form}
             component="form"
-            noValidate
-            autoComplete="off"
-            className="contact-form"
+            onSubmit={sendEmail}
+            sx={{
+              '& .MuiTextField-root': { mb: 2 },
+            }}
           >
-            <div className="form-flex">
-              <TextField
-                required
-                id="name-input"
-                label="Name"
-                placeholder="Your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
-              />
-              <TextField
-                required
-                id="email-input"
-                label="Email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                error={emailError}
-                helperText={emailError ? "Please enter your email" : ""}
-              />
-            </div>
             <TextField
-              required
-              id="message-input"
+              fullWidth
+              label="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              error={nameError}
+              helperText={nameError ? 'Name is required' : ''}
+            />
+            <TextField
+              fullWidth
+              label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              error={emailError}
+              helperText={emailError ? 'Valid email is required' : ''}
+            />
+            <TextField
+              fullWidth
               label="Message"
-              placeholder="Your message"
               multiline
               rows={4}
-              className="body-form"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
+              helperText={messageError ? 'Message is required' : ''}
             />
             <Button
+              type="submit"
               variant="contained"
-              endIcon={<SendIcon />}
-              onClick={sendEmail}
-              className="send-button"
+              disabled={loading}
+              sx={{ mt: 2 }}
             >
-              Send Message
+              {loading ? (
+                <>
+                  <CircularProgress size={20} color="inherit" />
+                  <span style={{ marginLeft: '8px' }}>Sending...</span>
+                </>
+              ) : (
+                <>
+                  <SendIcon />
+                  <span style={{ marginLeft: '8px' }}>Send Message</span>
+                </>
+              )}
             </Button>
           </Box>
         </div>
       </div>
+
+      <Snackbar 
+        open={snackbar.open} 
+        autoHideDuration={6000} 
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert 
+          onClose={handleSnackbarClose} 
+          severity={snackbar.severity}
+          sx={{ width: '100%' }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
