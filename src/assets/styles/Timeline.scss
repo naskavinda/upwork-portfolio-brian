@@ -339,3 +339,23 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .vertical-timeline.vertical-timeline--two-columns:before {
+    display: none;
+  }
+
+  .vertical-timeline-element-icon {
+    display: none;
+  }
+
+  .vertical-timeline-element-content {
+    margin-left: 0;
+    padding: 1.5rem;
+    width: 100%;
+  }
+
+  .vertical-timeline-element-content-arrow {
+    display: none;
+  }
+}
