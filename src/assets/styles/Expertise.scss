@@ -1,12 +1,13 @@
 .skills-container {
     margin-top: 64px;
+    margin-bottom: 64px;
     padding: 0% 10%;
     display: flex;
     flex-direction: column;
     text-align: left;
 
     svg {
-        color: black;
+        color: rgb(43, 152, 194);
     }
 
     @media (max-width: 768px) {
@@ -36,13 +37,18 @@
 .skills-container .skills-grid .skill {
     align-items: center;
     text-align: left;
-    background-color: white;
-    border-radius: 25px;
+    background-color: rgba(10, 25, 47, 0.7);
+    border-radius: 10px;
     padding: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgb(231, 231, 231);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    color: black;
+    color: rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
 
     @media (max-width: 768px) {
         padding: 30px;
@@ -52,7 +58,7 @@
 
 .skills-container .skills-grid .skill h3,
 .skills-container .skills-grid .skill p {
-    color: black;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .skill-header {
@@ -73,7 +79,7 @@
     flex: 1;
     word-wrap: break-word;
     margin: 0;
-    color: rgba(43, 152, 194, 1);
+    color: rgb(43, 152, 194);
 }
 
 .skill-icon {
@@ -81,8 +87,8 @@
 }
   
 .chip {
-    color: rgb(39, 40, 34) !important;
-    background-color: white !important;
+    color: rgb(43, 152, 194) !important;
+    background-color: rgba(43, 152, 194, 0.1) !important;
     font-size: 0.8rem !important;
     height: 25px !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -90,11 +96,11 @@
     cursor: pointer;
 
     span {
-        color: #2b98c2;
+        color: rgb(43, 152, 194);
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
         border-radius: 15px;
-        border:0.5px solid #2b98c2;
+        border: 1px solid rgba(43, 152, 194, 0.2);
         font-weight: 600;
     }
 
@@ -104,8 +110,37 @@
 }
 
 .chip:hover {
-    transform: scale(1.1); /* Hover effect */
-    background-color: #f0f8ff;
+    transform: scale(1.1);
+    background-color: rgba(43, 152, 194, 0.2) !important;
+}
+
+.light-mode {
+    .skills-container .skills-grid .skill {
+        background-color: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        color: #2d3748;
+
+        &:hover {
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        h3, p {
+            color: #2d3748;
+        }
+
+        h3 {
+            color: rgb(43, 152, 194);
+        }
+    }
+
+    .chip {
+        background-color: rgba(43, 152, 194, 0.1) !important;
+        border-color: rgba(43, 152, 194, 0.2);
+
+        &:hover {
+            background-color: rgba(43, 152, 194, 0.2) !important;
+        }
+    }
 }
 
 .flex-chips {
