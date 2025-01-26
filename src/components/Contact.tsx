@@ -133,6 +133,24 @@ function Contact() {
           </ul>
         </div>
 
+        <div className="contact-details">
+          <h3>Contact Details</h3>
+          <ul>
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:brian.bui@example.com">brian.bui@example.com</a>
+            </li>
+            <li>
+              <strong>Phone:</strong>
+              <a href="tel:+1234567890">+1 (234) 567-890</a>
+            </li>
+            <li>
+              <strong>Location:</strong>
+              <span>San Francisco, CA</span>
+            </li>
+          </ul>
+        </div>
+
         <div className="contact-form">
           <h3>Get in Touch</h3>
           <Box
@@ -142,27 +160,29 @@ function Contact() {
               '& .MuiTextField-root': { mb: 2 },
             }}
           >
+            <div className="form-row">
+              <TextField
+                className="form-field"
+                label="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                error={nameError}
+                helperText={nameError ? 'Name is required' : ''}
+              />
+              <TextField
+                className="form-field"
+                label="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                error={emailError}
+                helperText={emailError ? 'Valid email is required' : ''}
+              />
+            </div>
             <TextField
               fullWidth
-              label="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              error={nameError}
-              helperText={nameError ? 'Name is required' : ''}
-            />
-            <TextField
-              fullWidth
-              label="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              error={emailError}
-              helperText={emailError ? 'Valid email is required' : ''}
-            />
-            <TextField
-              fullWidth
-              label="Message"
               multiline
               rows={4}
+              label="Message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               error={messageError}
@@ -170,21 +190,11 @@ function Contact() {
             />
             <Button
               type="submit"
-              variant="contained"
+              className="connect-button"
               disabled={loading}
-              sx={{ mt: 2 }}
+              endIcon={loading ? <CircularProgress size={20} /> : <SendIcon />}
             >
-              {loading ? (
-                <>
-                  <CircularProgress size={20} color="inherit" />
-                  <span style={{ marginLeft: '8px' }}>Sending...</span>
-                </>
-              ) : (
-                <>
-                  <SendIcon />
-                  <span style={{ marginLeft: '8px' }}>Send Message</span>
-                </>
-              )}
+              Send Message
             </Button>
           </Box>
         </div>
