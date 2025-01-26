@@ -124,30 +124,31 @@ const projects: Project[] = [
 ];
 
 function ProjectCard() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [selectedTag, setSelectedTag] = useState<string | null>(null);
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  
-    const filteredProjects = projects.filter((project) => {
-      const matchesSearch =
-        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesTag = selectedTag
-        ? project.tags.includes(selectedTag)
-        : true;
-      return matchesSearch && matchesTag;
-    });
-  
-    const handleCardClick = (project: Project) => {
-      setSelectedProject(project);
-    };
-  
-    const closeModal = () => {
-      setSelectedProject(null);
-    };
-  
-    return (
-      <div className="projects-container" id="projects">
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const filteredProjects = projects.filter((project) => {
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTag = selectedTag
+      ? project.tags.includes(selectedTag)
+      : true;
+    return matchesSearch && matchesTag;
+  });
+
+  const handleCardClick = (project: Project) => {
+    setSelectedProject(project);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
+
+  return (
+    <div className="projects-container" id="projects">
+      <div className="content-wrapper">
         <h1>Projects</h1>
         <div className="search-bar">
           <input
@@ -189,25 +190,25 @@ function ProjectCard() {
             </div>
           ))}
         </div>
-        {selectedProject && (
-          <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="close-btn" onClick={closeModal}>
-                &times;
-              </button>
-              <h2>{selectedProject.title}</h2>
-              <p>{selectedProject.description}</p>
-              <p>{selectedProject.backText}</p>
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                className="modal-img"
-              />
-            </div>
-          </div>
-        )}
       </div>
-    );
-  }
-  
-  export default ProjectCard;
+      {selectedProject && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={closeModal}>
+              &times;
+            </button>
+            <h2>{selectedProject.title}</h2>
+            <p>{selectedProject.description}</p>
+            <p>{selectedProject.backText}</p>
+            <img
+              src={selectedProject.image}
+              alt={selectedProject.title}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default ProjectCard;
