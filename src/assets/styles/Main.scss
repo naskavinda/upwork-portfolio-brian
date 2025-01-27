@@ -3,9 +3,9 @@
 }
 
 .about-section {
+    position: relative;
     display: flex;
-    gap: 30px;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
     min-height: 700px;
@@ -43,20 +43,21 @@
     }
 
     .inner-container {
+        position: relative;
         display: flex;
         gap: 30px;
         justify-content: flex-start;
         align-items: center;
         width: 100%;
         max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 5%;
+        margin-left: 10%;
+        margin-right: 7%;
 
         @media (max-width: 768px) {
+            margin: 0;
             padding: 0 5%;
             flex-direction: column;
             text-align: center;
-            justify-content: center;
         }
 
         .content {
