@@ -154,23 +154,25 @@ function Main({ mode }: MainProps) {
   return (
     <div className="container">
       <div className="about-section">
-        <div className="image-wrapper">
-          <img src={avatar} alt="Avatar" />
-        </div>
-        <div className="content">
-          <div className="social_icons">
-            <a href="https://github.com/yujisatojr" target="_blank" rel="noreferrer"><GitHubIcon/></a>
-            <a href="https://www.linkedin.com/in/yujisato/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+        <div className="inner-container">
+          <div className="image-wrapper">
+            <img src={avatar} alt="Avatar" />
           </div>
-          <h1>Brian Bui</h1>
-          <p>Computer Engineer</p>
-          <button className="connect-button" onClick={handleConnect}>
-            <EmailIcon /> Let's Connect
-          </button>
+          <div className="content">
+            <div className="social_icons">
+              <a href="https://github.com/yujisatojr" target="_blank" rel="noreferrer"><GitHubIcon/></a>
+              <a href="https://www.linkedin.com/in/yujisato/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+            </div>
+            <h1>Brian Bui</h1>
+            <p>Computer Engineer</p>
+            <button className="connect-button" onClick={handleConnect}>
+              <EmailIcon /> Let's Connect
+            </button>
 
-          <div className="mobile_social_icons">
-            <a href="https://github.com/yujisatojr" target="_blank" rel="noreferrer"><GitHubIcon/></a>
-            <a href="https://www.linkedin.com/in/yujisato/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+            <div className="mobile_social_icons">
+              <a href="https://github.com/yujisatojr" target="_blank" rel="noreferrer"><GitHubIcon/></a>
+              <a href="https://www.linkedin.com/in/yujisato/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+            </div>
           </div>
         </div>
       </div>
