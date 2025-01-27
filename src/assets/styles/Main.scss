@@ -135,6 +135,17 @@
                 border-radius: 50%;
                 border: 5px solid rgba(43, 152, 194, 1);
             }
+
+            @media (max-width: 768px) {
+                margin-left: 0;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+
+                img {
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }
