@@ -14,6 +14,7 @@
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    overflow-x: hidden;
 
     h1 {
         color: white;
@@ -47,12 +48,12 @@
         justify-content: flex-start;
         align-items: center;
         width: 100%;
-        padding-left: 8%;
         max-width: 1400px;
         margin: 0 auto;
+        padding: 0 5%;
 
         @media (max-width: 768px) {
-            padding: 0% 5%;
+            padding: 0 5%;
             flex-direction: column;
             text-align: center;
             justify-content: center;
