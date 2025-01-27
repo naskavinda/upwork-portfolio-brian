@@ -51,7 +51,11 @@
         width: 100%;
         max-width: 1400px;
         margin-left: 10%;
-        margin-right: 7%;
+        margin-right: 0;
+
+        @media (min-width: 2000px) {
+            margin-right: calc((100vw - 1400px) * 0.1);
+        }
 
         @media (max-width: 768px) {
             margin: 0;
