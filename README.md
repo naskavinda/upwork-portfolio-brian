@@ -42,7 +42,7 @@ Note: After connecting your account, if you are getting kind of "can not connect
 4. Then go to the "Email Templates" section in side bar and Click "create new template" button, and add below templete to the it
 
 ```text
-Hello Kavinda,
+Hello Brian,
 
 You got a new message from {{from_name}} : User Email {{from_email}}
 
