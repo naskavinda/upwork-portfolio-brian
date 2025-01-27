@@ -15,6 +15,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
+import '../assets/styles/Navigation.scss';
 
 const drawerWidth = 240;
 const navItems = [
@@ -27,9 +28,7 @@ const navItems = [
 ];
 
 function Navigation({parentToChild, modeChange}: any) {
-
   const {mode} = parentToChild;
-
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
@@ -47,20 +46,15 @@ function Navigation({parentToChild, modeChange}: any) {
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const scrollToSection = (section: string) => {
-    console.log(section)
-    const expertiseElement = document.getElementById(section);
-    if (expertiseElement) {
-      expertiseElement.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scrolling to:', expertiseElement);  // Debugging: Ensure the element is found
-    } else {
-      console.error('Element with id "expertise" not found');  // Debugging: Log error if element is not found
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -114,7 +108,7 @@ function Navigation({parentToChild, modeChange}: any) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },

@@ -129,16 +129,12 @@ function ProjectCard() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = projects.filter((project) => {
-    if (!searchTerm && !selectedTag) return true;
-
-    const searchTermLower = searchTerm.toLowerCase().trim();
-    const matchesSearch = searchTerm === "" || 
-      project.title.toLowerCase().includes(searchTermLower) ||
-      project.description.toLowerCase().includes(searchTermLower) ||
-      project.tags.some(tag => tag.toLowerCase().includes(searchTermLower));
-
-    const matchesTag = !selectedTag || project.tags.includes(selectedTag);
-
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTag = selectedTag
+      ? project.tags.includes(selectedTag)
+      : true;
     return matchesSearch && matchesTag;
   });
 
